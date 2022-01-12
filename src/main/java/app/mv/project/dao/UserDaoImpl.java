@@ -25,9 +25,7 @@ class UserDaoImpl implements UserDao {
 
     @Override
     public void addUser(User user) {
-        em.getTransaction().begin();
         em.persist(user);
-        em.getTransaction().commit();
     }
 
     @Override
@@ -44,20 +42,16 @@ class UserDaoImpl implements UserDao {
 
     @Override
     public void changeUser(int id, User user) {
-        em.getTransaction().begin();
         Query q = em.createQuery("update User set name = ?1, lastName = ?2, age = ?3 where id = ?4");
         q.setParameter(1, user.getName());
         q.setParameter(2, user.getLastName());
         q.setParameter(3, user.getAge());
         q.setParameter(4, id);
         q.executeUpdate();
-        em.getTransaction().commit();
     }
 
     @Override
     public void deleteUserById(int id) {
-        em.getTransaction().begin();
         em.remove(em.find(User.class, id));
-        em.getTransaction().commit();
     }
 }

@@ -1,7 +1,5 @@
 package app.mv.project.config;
 
-import app.mv.project.Service.UserService;
-import app.mv.project.Service.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
